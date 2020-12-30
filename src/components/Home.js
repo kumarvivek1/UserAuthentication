@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react'
-import Nav from './Nav'
 import '../style/home.css'
 import img from '../img.jpg'
 
 
-
 const Home = (props) => {
-    const { isLoggedIn, handleLogout,handleLogin} = props
+    const {handleLogin} = props
     
     useEffect(() => {
         const tokenValue = JSON.parse(localStorage.getItem("loginToken"))
@@ -16,10 +14,7 @@ const Home = (props) => {
     },[])
 
     return (
-        <div>
-            <div className="home">
-                <Nav isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>  
-            </div>
+        <div className="home">
             <div className="logo">
                 <img src={img} alt="imagehere" />
             </div>

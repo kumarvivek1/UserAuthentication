@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login'
 import Account from './components/Account'
+import Nav from './components/Nav'
 import {Route} from 'react-router-dom'
 import swal from 'sweetalert'
 import axios from 'axios';
@@ -28,7 +29,6 @@ function App() {
     axios.delete(url, { headers: { 'x-auth':tokenData.token} })
       .then((res) => {
         if (Object.keys(res.data)[0] === 'notice') {
-          console.log(res.data)
           swal("logged out")
           localStorage.removeItem("loginToken")
           setIsLoggedIn(false)
@@ -42,10 +42,11 @@ function App() {
   
   return (
     <div className="App">
+      <Nav isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
       <Route path="/" exact render={() => {
         return (
           <div>
-            <Home isLoggedIn={isLoggedIn} handleLogout={handleLogout} handleLogin={handleLogin}/>
+            <Home handleLogin={handleLogin}/>
           </div>
         )
       }
@@ -67,7 +68,7 @@ function App() {
       <Route path="/account" render={() => {
         return (
           <div>
-            <Account tokenValue={tokenValue} isLoggedIn={isLoggedIn} handleLogout={handleLogout} handleLogin={handleLogin}/> 
+            <Account tokenValue={tokenValue} handleLogin={handleLogin}/> 
           </div>
         )
       }

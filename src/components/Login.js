@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Nav from './Nav'
 import '../style/login.css'
 import {Link, useHistory} from 'react-router-dom'
 import axios from 'axios'
@@ -58,7 +57,6 @@ const Login = (props) => {
     
     return (
         <div className="login">
-            <Nav />
             <div className="loginform">
                 {
                     error.status && <span>{error.status.errors}</span>

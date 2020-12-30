@@ -1,5 +1,4 @@
 import React, {useState,useEffect } from 'react'
-import Nav from './Nav'
 import '../style/register.css'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
@@ -68,13 +67,9 @@ const Register = (props) => {
         const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
     }
-    const handleError = (name) => {
-        
-    }
 
     return (
         <div className="register">
-            <Nav/>
             <div className="regform">
                 {error.errors && <span>{error.errors}</span>
                 }

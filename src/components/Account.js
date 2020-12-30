@@ -1,12 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Nav from './Nav'
 import '../style/account.css'
 import { useHistory } from 'react-router-dom'
 import swal from 'sweetalert'
 
 const Account = (props) => {
-    const {isLoggedIn,handleLogout,handleLogin } = props
+    const {handleLogin } = props
     const [userData, setUserData] = useState({})
     const history = useHistory()
     
@@ -32,7 +31,6 @@ const Account = (props) => {
     
     return (
         <div>
-            <Nav isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
             <div className="showUser">
                 <h4>{userData.username}</h4>
                 <h4>{userData.email}</h4>
