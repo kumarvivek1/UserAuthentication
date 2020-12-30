@@ -1,0 +1,19 @@
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  display: inline;
+  float: left;
+  padding:8px;
+}
+.nav{
+position:absolute;
+right:5%;
+}
+h2{
+position: absolute;
+left:5%;
+color: rgb(24, 104, 51);
+}

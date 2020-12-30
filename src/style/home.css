@@ -1,0 +1,29 @@
+.logo{
+    position:absolute;
+    top:10%;
+    left:5%;
+    right:5%;
+}
+img{
+height: 500px;
+width:1370px;
+opacity: 60%;
+border-radius: 5px;
+max-width: 100%;
+
+}
+img:hover{
+opacity:80%;
+}
+.leftcontent{
+position: absolute;
+top:81%;
+left:5%;
+width:40%;
+}
+.rightcontent{
+position:absolute;
+top:81%;
+right:5%;
+width:40%;
+}

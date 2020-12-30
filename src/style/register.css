@@ -1,0 +1,24 @@
+.regform{
+position: absolute;
+left:40%;
+top:20%;
+}
+input[type=text],
+input[type=email],
+input[type=password]
+{
+padding: 10px;
+margin:5px;
+border-radius: 8px;
+width:200px;
+}
+input[type=submit],
+input[type=button]{
+padding: 5px 10px 5px 10px;
+margin:5px;
+margin-right: 20px;
+border-radius: 8px;
+}
+span{
+color: red;
+}
