@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login'
 import Account from './components/Account'
-import {Redirect, Route} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import swal from 'sweetalert'
 import axios from 'axios';
 

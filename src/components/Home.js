@@ -11,7 +11,6 @@ const Home = (props) => {
     useEffect(() => {
         const tokenValue = JSON.parse(localStorage.getItem("loginToken"))
         if (tokenValue) {
-            console.log(tokenValue)
             handleLogin()
         }
     },[])

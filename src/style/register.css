@@ -2,6 +2,9 @@
 position: absolute;
 left:40%;
 top:20%;
+background-color: chartreuse;
+padding: 20px 80px 20px 80px;
+border-radius: 15px;
 }
 input[type=text],
 input[type=email],

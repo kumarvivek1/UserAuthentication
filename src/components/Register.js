@@ -13,7 +13,6 @@ const Register = (props) => {
     
     useEffect(() => {
         if (JSON.parse(localStorage.getItem("loginToken"))) {
-            
              handleLogout()
         }  
      }, [])
