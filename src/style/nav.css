@@ -4,12 +4,15 @@ ul{
   padding: 0;
   position: absolute;
   right:5%;
+  text-decoration: none;
+  font-size: 20px;
 }
 li {
   display: inline;
   float: left;
-  padding:8px;
+  padding:12px;
   text-align: center;
+  margin:10px;
 }
 .nav{
 display: flex;
@@ -22,5 +25,5 @@ align-items: center;
 h2{
 position: absolute;
 left:5%;
-color: rgba(185, 49, 8, 0.774);
+color: rgba(49, 15, 236, 0.774);
 }

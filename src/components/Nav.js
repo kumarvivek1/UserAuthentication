@@ -6,19 +6,19 @@ const Nav = (props) => {
     const{isLoggedIn,handleLogout}=props
     return (
         <div>
-            <h2>User Auth</h2>
+            <h2>User Authorization</h2>
             <div className="nav">
                 {isLoggedIn ? (
                         <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/account">Account</Link></li>
-                            <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
+                            <Link to="/"><li>Home</li></Link>
+                            <Link to="/account"><li>Account</li></Link>
+                            <Link to="/" onClick={handleLogout}><li>Logout</li></Link>
                         </ul>
                     ): (
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/register">Register</Link></li>
-                        <li><Link to="/login">Login</Link></li>
+                        <Link to="/"><li>Home</li></Link>
+                        <Link to="/register"><li>Register</li></Link>
+                        <Link to="/login"><li>Login</li></Link>
                     </ul>
                 ) 
             }
