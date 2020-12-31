@@ -5,7 +5,7 @@ import axios from 'axios'
 import swal from 'sweetalert'
 
 const Register = (props) => {
-    const {handleLogout}=props
+    const {handleLogout,handleMessage}=props
     const [formData, setFormData] = useState({ username: '', email: '', password: '' })
     const [error, setError] = useState({})
     const [toggle, setToggle] = useState(false)
@@ -51,7 +51,7 @@ const Register = (props) => {
                 .then((res) => {
                     console.log(res.data)
                     if (Object.keys(res.data)[0]!=="errors") {
-                        swal("success!", "You have registered sucessfully!", "success");
+                        handleMessage("You have registered sucessfully!");
                         setFormData({ username: '', email: '', password: '' })
                         setToggle(true)
                     } else {

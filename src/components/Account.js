@@ -2,10 +2,9 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import '../style/account.css'
 import { useHistory } from 'react-router-dom'
-import swal from 'sweetalert'
 
 const Account = (props) => {
-    const {handleLogin } = props
+    const {handleLogin,handleMessage} = props
     const [userData, setUserData] = useState({})
     const history = useHistory()
     
@@ -20,11 +19,11 @@ const Account = (props) => {
             })
             .catch((err) => {
                 history.push("/login")
-                swal("you need to login first")
+                handleMessage("you need to login first. Please login here!")
             })
         } else {
             history.push("/login")
-            swal("you need to login first")
+            handleMessage("you need to login first. Please login here!")
         }
         
     }, [])

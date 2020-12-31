@@ -5,7 +5,7 @@ import axios from 'axios'
 import swal from 'sweetalert'
 
 const Login = (props) => {
-    const {handleLogin,handleLogout}=props
+    const {handleLogin,handleLogout,message,handleMessage}=props
     const [loginData, setLoginData] = useState({ email: '', password: '' })
     const [error, setError] = useState({})
     const history = useHistory()
@@ -45,7 +45,7 @@ const Login = (props) => {
                     } else if (Object.keys(res.data)[0]==="token") {
                         localStorage.setItem("loginToken", JSON.stringify(res.data))
                         handleLogin()
-                        swal("success!", "You are logged in!", "success")
+                        handleMessage("You have logged in successfully!")
                         history.push("/")
                     }
                 })
@@ -57,6 +57,9 @@ const Login = (props) => {
     
     return (
         <div className="login">
+            {
+                message && <h4 id='message'>{message}</h4>
+            }
             <div className="loginform">
                 {
                     error.status && <span>{error.status.errors}</span>

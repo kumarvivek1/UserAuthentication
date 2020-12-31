@@ -4,7 +4,7 @@ import img from '../img.jpg'
 
 
 const Home = (props) => {
-    const {handleLogin} = props
+    const {handleLogin,message} = props
     
     useEffect(() => {
         const tokenValue = JSON.parse(localStorage.getItem("loginToken"))
@@ -15,6 +15,9 @@ const Home = (props) => {
 
     return (
         <div className="home">
+            {
+                message && <h4 id='message'>{message}</h4>
+            }
             <div className="logo">
                 <img src={img} alt="imagehere" />
             </div>

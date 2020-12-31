@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import './style/App.css';
 import Home from './components/Home';
 import Register from './components/Register';
@@ -12,13 +12,19 @@ import axios from 'axios';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [tokenValue,setTokenValue]=useState({})
+  const [message,setMessage]=useState('')
+
+  const handleMessage = (val) => {
+    setMessage(val)
+    setTimeout(() => {
+      setMessage('')
+    },3000)
+  }
 
   const handleLogin = () => {
-    setIsLoggedIn(true)
     const tokenD = JSON.parse(localStorage.getItem("loginToken"))
     if (tokenD) {
-      setTokenValue(tokenD)
+      setIsLoggedIn(true)
     }
   }
   
@@ -46,7 +52,7 @@ function App() {
       <Route path="/" exact render={() => {
         return (
           <div>
-            <Home handleLogin={handleLogin}/>
+            <Home handleLogin={handleLogin} message={message}/>
           </div>
         )
       }
@@ -54,21 +60,21 @@ function App() {
       <Route path="/register" render={() => {
         return (
           <div>
-            <Register handleLogout={handleLogout}/>
+            <Register handleLogout={handleLogout} handleMessage={handleMessage}/>
           </div>
         )
       }} />
       <Route path="/login" render={() => {
         return (
           <div>
-            <Login handleLogin={handleLogin} handleLogout={handleLogout}/>
+            <Login handleLogin={handleLogin} handleLogout={handleLogout} message={message} handleMessage={handleMessage}/>
           </div>
         )
       }} />
       <Route path="/account" render={() => {
         return (
           <div>
-            <Account tokenValue={tokenValue} handleLogin={handleLogin}/> 
+            <Account handleLogin={handleLogin} handleMessage={handleMessage}/> 
           </div>
         )
       }

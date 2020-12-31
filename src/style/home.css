@@ -1,6 +1,6 @@
 .logo{
     position:absolute;
-    top:10%;
+    top:15%;
     left:5%;
     right:5%;
 }
@@ -22,6 +22,7 @@ left:5%;
 width:40%;
 }
 .rightcontent{
+display: flex;
 position:absolute;
 top:81%;
 right:5%;
