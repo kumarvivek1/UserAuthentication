@@ -4,7 +4,7 @@ import '../style/account.css'
 import { useHistory } from 'react-router-dom'
 
 const Account = (props) => {
-    const {handleLogin,handleMessage} = props
+    const {handleMessage} = props
     const [userData, setUserData] = useState({})
     const history = useHistory()
     
@@ -15,7 +15,6 @@ const Account = (props) => {
         axios.get(url, { headers: { 'x-auth': tokenValue.token } })
             .then((res) => {
                 setUserData(res.data)
-                handleLogin()
             })
             .catch((err) => {
                 history.push("/login")

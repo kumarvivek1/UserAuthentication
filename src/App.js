@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './style/App.css';
 import Home from './components/Home';
 import Register from './components/Register';
@@ -12,7 +12,11 @@ import axios from 'axios';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [message,setMessage]=useState('')
+  const [message, setMessage] = useState('')
+
+  useEffect(() => {
+          handleLogin()
+    },[])
 
   const handleMessage = (val) => {
     setMessage(val)
@@ -52,7 +56,7 @@ function App() {
       <Route path="/" exact render={() => {
         return (
           <div>
-            <Home handleLogin={handleLogin} message={message}/>
+            <Home message={message}/>
           </div>
         )
       }
@@ -74,7 +78,7 @@ function App() {
       <Route path="/account" render={() => {
         return (
           <div>
-            <Account handleLogin={handleLogin} handleMessage={handleMessage}/> 
+            <Account handleMessage={handleMessage}/> 
           </div>
         )
       }
