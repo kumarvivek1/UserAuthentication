@@ -8,6 +8,7 @@ import Nav from './components/Nav'
 import {Route} from 'react-router-dom'
 import swal from 'sweetalert'
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {

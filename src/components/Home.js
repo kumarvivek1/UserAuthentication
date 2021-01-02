@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import '../style/home.css'
-import img from '../img.jpg'
+import  CarouselImg  from './carousel'
 
 
 const Home = (props) => {
@@ -12,7 +12,7 @@ const Home = (props) => {
                 message && <h4 id='message'>{message}</h4>
             }
             <div className="logo">
-                <img src={img} alt="imagehere" />
+                <CarouselImg />
             </div>
             <div className="content">
                 <div className="leftcontent">

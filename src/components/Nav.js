@@ -6,7 +6,7 @@ const Nav = (props) => {
     const{isLoggedIn,handleLogout}=props
     return (
         <div>
-            <h2>User Authorization</h2>
+            <h2>User Authentication</h2>
             <div className="nav">
                 {isLoggedIn ? (
                         <ul>

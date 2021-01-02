@@ -13,6 +13,7 @@ li {
   padding:12px;
   text-align: center;
   margin:10px;
+  color: rgb(225, 233, 233);
 }
 .nav{
 display: flex;
