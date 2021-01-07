@@ -5,14 +5,15 @@ import axios from 'axios'
 import swal from 'sweetalert'
 
 const Login = (props) => {
-    const {handleLogin,handleLogout,message,handleMessage}=props
+    const {handleLogin,message,handleMessage}=props
     const [loginData, setLoginData] = useState({ email: '', password: '' })
     const [error, setError] = useState({})
     const history = useHistory()
 
     useEffect(() => {
         if (JSON.parse(localStorage.getItem("loginToken"))) {
-            handleLogout()
+            localStorage.removeItem("loginToken")
+            handleMessage("successfully logged out")
         }  
      }, [])
     
@@ -40,9 +41,9 @@ const Login = (props) => {
             const url = "http://dct-user-auth.herokuapp.com/users/login"
             axios.post(url, loginData)
                 .then((res) => {
-                    if (Object.keys(res.data)[0]==="errors") {
+                    if (res.data.hasOwnProperty("errors")) {
                         setError({ status: res.data })
-                    } else if (Object.keys(res.data)[0]==="token") {
+                    } else if (res.data.hasOwnProperty("token")) {
                         localStorage.setItem("loginToken", JSON.stringify(res.data))
                         handleLogin()
                         handleMessage("You have logged in successfully!")

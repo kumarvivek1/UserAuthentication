@@ -5,14 +5,14 @@ import axios from 'axios'
 import swal from 'sweetalert'
 
 const Register = (props) => {
-    const {handleLogout,handleMessage}=props
+    const {handleMessage}=props
     const [formData, setFormData] = useState({ username: '', email: '', password: '' })
     const [error, setError] = useState({})
     const [toggle, setToggle] = useState(false)
     
     useEffect(() => {
         if (JSON.parse(localStorage.getItem("loginToken"))) {
-             handleLogout()
+             localStorage.removeItem("loginToken")
         }  
      }, [])
     
@@ -49,8 +49,7 @@ const Register = (props) => {
             
             axios.post(url, formData)
                 .then((res) => {
-                    console.log(res.data)
-                    if (Object.keys(res.data)[0]!=="errors") {
+                    if (!res.data.hasOwnProperty("errors")) {
                         handleMessage("You have registered sucessfully!");
                         setFormData({ username: '', email: '', password: '' })
                         setToggle(true)
