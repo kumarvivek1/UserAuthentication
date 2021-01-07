@@ -6,6 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [message, setMessage] = useState('')
+
+
+  const handleMessage = (val) => {
+    setMessage(val)
+    setTimeout(() => {
+      setMessage('')
+    },3000)
+    }
 
   const handleLogin = (val) => {
       setIsLoggedIn(!isLoggedIn)
@@ -18,7 +27,7 @@ function App() {
   
   return (
     <div className="App">
-      <Nav isLoggedIn={isLoggedIn} handleLogin={handleLogin}/>
+      <Nav isLoggedIn={isLoggedIn} handleLogin={handleLogin} handleMessage={handleMessage} message={message}/>
     </div>
   );
 }

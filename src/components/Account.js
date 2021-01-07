@@ -25,7 +25,7 @@ const Account = (props) => {
             handleMessage("you need to login first. Please login here!")
         }
         
-    }, [])
+    },[])
     
     return (
         <div>

@@ -25,13 +25,15 @@ const MyNotes = (props) => {
                 swal(err.message)
             })
     }, [])
-    
+
+
     const handleTitle = (e) => {
         setTitle(e.target.value)
     }
     const handleBody = (e) => {
         setBody(e.target.value)
     }
+    
     const handleSubmit = (e) => {
         e.preventDefault()
         setError({})
@@ -53,6 +55,7 @@ const MyNotes = (props) => {
         }
         
     }
+
     const addNote = (formData) => {
         if (token) {
             const url = "http://dct-user-auth.herokuapp.com/api/notes"
@@ -67,6 +70,7 @@ const MyNotes = (props) => {
             props.history.push('/')
         }    
     }
+
     const showDetail = (id) => {
         const url = `http://dct-user-auth.herokuapp.com/api/notes/${id}`
         axios.get(url, { headers: { "x-auth": token } })
@@ -78,19 +82,36 @@ const MyNotes = (props) => {
                 swal(err.message)
             })
     }
+
     const handleRemove = (id) => {
-        const url = `http://dct-user-auth.herokuapp.com/api/notes/${id}`
-        axios.delete(url, { headers: { "x-auth": token } })
-            .then((res) => {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                const url = `http://dct-user-auth.herokuapp.com/api/notes/${id}`
+                axios.delete(url, { headers: { "x-auth": token } })
+                .then((res) => {
                     const result = notes.filter(note => {
                         return id !== note._id
                     })
                     setNotes(result)
-            })
-            .catch((err) => {
+                    swal("success! Your file has been deleted!", {
+                    icon: "success",
+                });
+                })
+                .catch((err) => {
                 swal(err.message)
-            })
-        
+                })
+                
+            } else {
+            swal("Your file is safe!");
+            }
+        });    
     }
 
     return (
@@ -102,7 +123,7 @@ const MyNotes = (props) => {
                         if (note.hasOwnProperty("_id")) {
                             return (
                                 <div key={note._id}>
-                                    <p><Link to="#" onClick={() => showDetail(note._id)}>{note.title}</Link> {'       '}
+                                    <p><Link to="#" onClick={() => showDetail(note._id)}>{note.title}</Link>
                                     <button id="button" onClick={() => handleRemove(note._id)}>delete</button></p>
                                 </div>
                             )

@@ -45,6 +45,7 @@ const Register = (props) => {
         setError(errorData)
 
         if (Object.keys(errorData).length === 0) {
+            // please move to new file use .evn
             const url = "http://dct-user-auth.herokuapp.com/users/register"
             
             axios.post(url, formData)

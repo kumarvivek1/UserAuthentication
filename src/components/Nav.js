@@ -8,26 +8,17 @@ import MyNotes from './MyNotes'
 import "../style/nav.css"
 
 const Nav = (props) => {
-    const { isLoggedIn, handleLogin} = props
-    const [message, setMessage] = useState('')
-
-
-  const handleMessage = (val) => {
-    setMessage(val)
-    setTimeout(() => {
-      setMessage('')
-    },3000)
-    }
+    const { isLoggedIn, handleLogin,handleMessage,message} = props
+    
     
     return (
         <div>
-            
             <div className="nav">
                 <h2>User Authentication</h2>
                 <ul>
                     <Link to="/"><li>Home</li></Link>
                     {isLoggedIn ? (
-                        <React.Fragment>
+                        <>
                             <Link to="/account"><li>Account</li></Link>
                             <Link to="/mynotes"><li>MyNotes</li></Link>
                             <Link to="/" onClick={() => {
@@ -36,12 +27,12 @@ const Nav = (props) => {
                                 handleMessage('successfully logged out!')
                                 props.history.push('/')
                             }}><li>Logout</li></Link>
-                        </React.Fragment>
+                        </>
                     ) : (
-                        <React.Fragment>
+                        <>
                             <Link to="/register"><li>Register</li></Link>
                             <Link to="/login"><li>Login</li></Link>
-                        </React.Fragment>
+                        </>
                        ) 
                     }
                 </ul>
