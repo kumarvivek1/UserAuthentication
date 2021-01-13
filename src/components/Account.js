@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import '../style/account.css'
 import { useHistory } from 'react-router-dom'
 
 const Account = (props) => {
@@ -28,14 +27,12 @@ const Account = (props) => {
     },[])
     
     return (
-        <div>
             <div className="showUser">
-                <h4>{userData.username}</h4>
-                <h4>{userData.email}</h4>
-                <h4>{userData.createdAt}</h4>
-                <h4>{userData._id}</h4>
+                <h4>Name : {userData.username}</h4>
+                <h4>Email : {userData.email}</h4>
+                <h4>Created at : {userData.createdAt}</h4>
+                <h4>Id : {userData._id}</h4>
             </div>
-        </div>
      )
 }
 export default Account

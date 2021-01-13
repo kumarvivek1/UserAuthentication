@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import '../style/login.css'
 import {Link, useHistory} from 'react-router-dom'
 import axios from 'axios'
 import swal from 'sweetalert'
@@ -76,7 +75,7 @@ const Login = (props) => {
                         error.password && <div><span>{error.password}</span><br /></div>
                     }
                     <input type="submit" value="Login" />
-                    <input type="button" value="cancel" onClick={handleRemove}/>
+                    <input type="button" id="cancel" value="Cancel" onClick={handleRemove}/>
                 </form>
                 <p>Don't have Account ? <Link to='/register'>Register here</Link></p>
             </div>

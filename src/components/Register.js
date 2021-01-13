@@ -1,8 +1,8 @@
 import React, {useState,useEffect } from 'react'
-import '../style/register.css'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import swal from 'sweetalert'
+import validator from 'validator'
 
 const Register = (props) => {
     const {handleMessage}=props
@@ -33,7 +33,7 @@ const Register = (props) => {
 
         if (formData.email.length === 0) {
             errorData.email="email can't be blank"
-        } else if (!validateEmail(formData.email)) {
+        } else if (!validator.isEmail(formData.email)) {
             errorData.email="enter valid email"
         }
 
@@ -63,11 +63,7 @@ const Register = (props) => {
                 })
         }
     }
-    function validateEmail(email) {
-        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-    }
-
+    
     return (
         <div className="register">
             <div className="regform">
@@ -87,10 +83,9 @@ const Register = (props) => {
                     {
                         error.password && <div><span>{error.password}</span><br /></div>
                     }
-                    {/*(formData.username.length===0 ||formData.email.length===0 || formData.password.length===0 || Object.keys(error).length!==0) ?(<input type="submit" value="Register" disabled/>):(<input type="submit" value="Register"/>)
-                    */}
+                    
                     <input type="submit" value="Register"/>
-                    <input type="button" value="cancel" onClick={handleRemove}/>
+                    <input type="button" id="cancel" value="Cancel" onClick={handleRemove}/>
                 </form>
                 <p>Already have account? <Link to='/login'>Login</Link></p>
             </div>

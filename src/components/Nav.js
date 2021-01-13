@@ -1,11 +1,11 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { Link,Route,withRouter } from 'react-router-dom'
 import Home from './Home';
 import Register from './Register';
 import Login from './Login'
 import Account from './Account'
-import MyNotes from './MyNotes'
-import "../style/nav.css"
+import MyNotes from './mynotes/MyNotes'
+import "../style/nav.scss"
 
 const Nav = (props) => {
     const { isLoggedIn, handleLogin,handleMessage,message} = props
@@ -37,34 +37,38 @@ const Nav = (props) => {
                     }
                 </ul>
             </div>
-            <Route path="/" exact render={() => {
-        return (
-            <Home message={message}/>
-        )
-      }
-      } />
-      <Route path="/register" render={(props) => {
-        return (
-            <Register {...props}  handleMessage={handleMessage}/>
-        )
-      }} />
-      <Route path="/login" render={(props) => {
-        return (
-            <Login {...props} handleLogin={handleLogin}  message={message} handleMessage={handleMessage}/>
-        )
-      }} />
-      <Route path="/account" render={(props) => {
-        return (
-            <Account {...props} handleMessage={handleMessage}/> 
-        )
-      }} />
+
+            <Route path="/" exact render={(props) => {
+                return (
+                    <Home message={message} {...props}/>
+                )
+            }} />
+
+            <Route path="/register" render={(props) => {
+                return (
+                    <Register {...props}  handleMessage={handleMessage}/>
+                )
+            }} />
+
+            <Route path="/login" render={(props) => {
+                return (
+                    <Login {...props} handleLogin={handleLogin}  message={message} handleMessage={handleMessage}/>
+                )
+            }} />
+
+            <Route path="/account" render={(props) => {
+                return (
+                    <Account {...props} handleMessage={handleMessage}/> 
+                )
+            }} />
+
             <Route path="/mynotes" render={(props) => {
                 return (
                     <MyNotes {...props} />
                 )
-            }} />    
-        </div>
-        
+            }} /> 
+            
+        </div> 
     )
 }
 export default withRouter(Nav)

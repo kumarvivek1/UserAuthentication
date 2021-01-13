@@ -1,0 +1,155 @@
+.App{
+background-image:url('https://www.wallpapertip.com/wmimgs/14-145669_northern-lights-christmas-theme.jpg');
+background-position: center; 
+height:800px;
+font-family:cursive;
+    #message{
+    color: rgb(12, 114, 37);
+    position:absolute;
+    top:11%
+    }
+}
+//account component
+.showUser{
+position: absolute;
+top:15%;
+left:35%;
+display: flex;
+color:white;
+flex-direction: column;
+justify-content: center;
+}
+//home component
+.home{
+display:flex;
+justify-content: center;
+color:white;
+}
+.logo{
+    position:absolute;
+    top:16%;
+    img{
+        height: 480px;
+        border-radius: 5px;
+        max-width: 100%;
+        opacity: 50%;
+    }
+    
+}
+img:hover{
+opacity: 90%;
+}
+.content{
+    .leftcontent{
+        position: absolute;
+        bottom: 0;
+        left:12%;
+        width:37%;
+        margin: auto;
+    }
+.rightcontent{
+        position: absolute;;
+        bottom:0;
+        right:12%;
+        width:37%;
+        margin: auto;
+    }
+}
+
+//login & register component
+.login,.register{
+display: flex;
+justify-content: center;
+}
+
+.loginform,.regform{
+position: absolute;
+background:transparent;
+color: white;
+top:20%;
+padding: 20px 80px 20px 80px;
+border-radius: 15px;
+width: 600px;
+    input[type=text],
+    input[type=email],
+    input[type=password]
+        {
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        width:350px;
+        }
+    input[type=submit],
+    input[type=button]{
+        padding: 5px 20px 5px 20px;
+        margin-top: 5px;
+        margin-right:10px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        color: white;
+        background-color: rgb(23, 27, 248);
+    }
+    input[type=submit]:hover{
+        background-color: rgb(3, 3, 139);
+    }
+    span{
+        color: red;
+    }
+    #cancel{
+        background-color: rgb(250, 34, 34);
+    }
+    #cancel:hover{
+        background-color: rgb(172, 4, 4);
+    }
+}
+
+ // mynotes
+.notelist{
+position: absolute;
+top: 16%;
+left:5%;
+color: white;
+}
+.noteform{
+position: absolute;
+top:16%;
+right:5%;
+background:transparent;
+color:white;
+padding: 20px 80px 20px 80px;
+border-radius: 15px;
+width: 600px;
+    input[type=text],
+    textarea{
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    width:350px;
+    }
+    input[type=submit]
+    {
+        padding: 5px 20px 5px 20px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        color: white;
+        background-color: rgb(23, 27, 248);
+    }
+    input[type=submit]:hover{
+        background-color: rgb(3, 3, 139);
+    }
+    
+}
+#button{
+    padding:3px;
+    background-color: rgb(240, 43, 43);
+    color:white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    }
+#button:hover{
+    background-color: rgb(194, 5, 5);
+}

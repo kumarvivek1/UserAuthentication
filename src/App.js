@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import './style/App.css';
+import './style/app.scss';
 import Nav from './components/Nav'
 import 'bootstrap/dist/css/bootstrap.min.css';
 

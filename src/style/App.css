@@ -1,9 +1,152 @@
-.App{
-font-family:cursive
+.App {
+  background-color: black;
+  font-family: cursive;
 }
-#message{
-color: rgb(12, 114, 37);
-position:absolute;
-left: 35%;
-top:11%
+
+.App #message {
+  color: #0c7225;
+  position: absolute;
+  left: 35%;
+  top: 11%;
 }
+
+.showUser {
+  position: absolute;
+  top: 15%;
+  left: 40%;
+}
+
+.logo {
+  position: absolute;
+  top: 16%;
+  left: 5%;
+  right: 5%;
+}
+
+.logo img {
+  height: 500px;
+  width: 1370px;
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+.leftcontent {
+  position: fixed;
+  bottom: 0;
+  left: 5%;
+  width: 40%;
+}
+
+.rightcontent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  right: 5%;
+  width: 40%;
+}
+
+.loginform, .regform {
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  background-color: rgba(8, 69, 104, 0.925);
+  color: white;
+  padding: 20px 80px 20px 80px;
+  border-radius: 15px;
+  width: 600px;
+}
+
+.loginform input[type=text],
+.loginform input[type=email],
+.loginform input[type=password], .regform input[type=text],
+.regform input[type=email],
+.regform input[type=password] {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  width: 350px;
+}
+
+.loginform input[type=submit],
+.loginform input[type=button], .regform input[type=submit],
+.regform input[type=button] {
+  padding: 5px 20px 5px 20px;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: #171bf8;
+}
+
+.loginform input[type=submit]:hover, .regform input[type=submit]:hover {
+  background-color: #03038b;
+}
+
+.loginform span, .regform span {
+  color: red;
+}
+
+.loginform #cancel, .regform #cancel {
+  background-color: #fa2222;
+}
+
+.loginform #cancel:hover, .regform #cancel:hover {
+  background-color: #ac0404;
+}
+
+.notelist {
+  position: absolute;
+  top: 16%;
+  left: 5%;
+}
+
+.noteform {
+  position: absolute;
+  top: 16%;
+  right: 5%;
+  background-color: #155275;
+  color: white;
+  padding: 20px 80px 20px 80px;
+  border-radius: 15px;
+  width: 600px;
+}
+
+.noteform input[type=text],
+.noteform textarea {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  width: 350px;
+}
+
+.noteform input[type=submit] {
+  padding: 5px 20px 5px 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: #171bf8;
+}
+
+.noteform input[type=submit]:hover {
+  background-color: #03038b;
+}
+
+#button {
+  padding: 3px;
+  background-color: #f02b2b;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+}
+
+#button:hover {
+  background-color: #c20505;
+}
+/*# sourceMappingURL=app.css.map */
