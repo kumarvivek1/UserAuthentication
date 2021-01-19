@@ -1,37 +1,34 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React,{useEffect} from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { setMessage } from '../redux-store/action/message.action'
+import { fetchUser } from '../redux-store/action/user.action'
 
 const Account = (props) => {
-    const {handleMessage} = props
-    const [userData, setUserData] = useState({})
+    const dispatch=useDispatch()
+    const user=useSelector((state)=>state.user)
     const history = useHistory()
     
     useEffect(() => {
         const tokenValue = JSON.parse(localStorage.getItem("loginToken"))
         if (tokenValue) {
-            const url = "http://dct-user-auth.herokuapp.com/users/account"
-        axios.get(url, { headers: { 'x-auth': tokenValue.token } })
-            .then((res) => {
-                setUserData(res.data)
-            })
-            .catch((err) => {
-                history.push("/login")
-                handleMessage("you need to login first. Please login here!")
-            })
+            dispatch(fetchUser())
         } else {
             history.push("/login")
-            handleMessage("you need to login first. Please login here!")
+            dispatch(setMessage("you need to login first. Please login here!"))
+            setTimeout(() => {
+                dispatch(setMessage(''))
+            }, 3000)
         }
         
     },[])
     
     return (
             <div className="showUser">
-                <h4>Name : {userData.username}</h4>
-                <h4>Email : {userData.email}</h4>
-                <h4>Created at : {userData.createdAt}</h4>
-                <h4>Id : {userData._id}</h4>
+                <h4>Name : {user.username}</h4>
+                <h4>Email : {user.email}</h4>
+                <h4>Created at : {user.createdAt}</h4>
+                <h4>Id : {user._id}</h4>
             </div>
      )
 }

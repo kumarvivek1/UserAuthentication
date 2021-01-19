@@ -1,9 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import  CarouselImg  from './carousel'
 
 
 const Home = (props) => {
-    const {message} = props
+    const message=useSelector((state)=>state.message)
 
     return (
         <div className="home">

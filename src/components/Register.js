@@ -1,11 +1,13 @@
-import React, {useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import {useDispatch} from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import swal from 'sweetalert'
 import validator from 'validator'
+import { setMessage } from '../redux-store/action/message.action'
 
 const Register = (props) => {
-    const {handleMessage}=props
+    const dispatch=useDispatch()
     const [formData, setFormData] = useState({ username: '', email: '', password: '' })
     const [error, setError] = useState({})
     const [toggle, setToggle] = useState(false)
@@ -51,7 +53,7 @@ const Register = (props) => {
             axios.post(url, formData)
                 .then((res) => {
                     if (!res.data.hasOwnProperty("errors")) {
-                        handleMessage("You have registered sucessfully!");
+                        dispatch(setMessage("You have registered sucessfully!"));
                         setFormData({ username: '', email: '', password: '' })
                         setToggle(true)
                     } else {

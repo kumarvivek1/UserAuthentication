@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react'
 import {Link, useHistory} from 'react-router-dom'
 import axios from 'axios'
 import swal from 'sweetalert'
+import { useDispatch, useSelector } from 'react-redux'
+import { setMessage } from '../redux-store/action/message.action'
+import { setLogin } from '../redux-store/action/login.action'
 
 const Login = (props) => {
-    const {handleLogin,message,handleMessage}=props
+    const dispatch=useDispatch()
+    const message= useSelector((state)=>state.message)
     const [loginData, setLoginData] = useState({ email: '', password: '' })
     const [error, setError] = useState({})
     const history = useHistory()
@@ -12,7 +16,10 @@ const Login = (props) => {
     useEffect(() => {
         if (JSON.parse(localStorage.getItem("loginToken"))) {
             localStorage.removeItem("loginToken")
-            handleMessage("successfully logged out")
+            dispatch(setMessage("successfully logged out"))
+            setTimeout(() => {
+                dispatch(setMessage(''))
+            }, 3000)
         }  
      }, [])
     
@@ -44,9 +51,12 @@ const Login = (props) => {
                         setError({ status: res.data })
                     } else if (res.data.hasOwnProperty("token")) {
                         localStorage.setItem("loginToken", JSON.stringify(res.data))
-                        handleLogin()
-                        handleMessage("You have logged in successfully!")
+                        dispatch(setLogin())
+                        dispatch(setMessage("You have logged in successfully!"))
                         history.push("/")
+                        setTimeout(() => {
+                            dispatch(setMessage(''))
+                        }, 3000)
                     }
                 })
                 .catch((err) => {
